@@ -219,9 +219,42 @@ export default {
   left: -8px;
 }
 
+ul {
+  position: relative;
+}
+.list-group::before {
+  content: "";
+  display: block;
+  width: 0;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  border-left: 1px solid;
+  z-index: 2;
+}
+.list-group .list-group-item:before {
+  content: "";
+  display: block;
+  width: 10px;
+  height: 0;
+  border-top: 1px solid;
+  margin-top: -1px;
+  position: absolute;
+  top: 1em;
+  left: 0;
+  z-index: 4;
+}
+.list-group .list-group-item:last-child:before {
+  background: #fff;
+  height: auto;
+  top: 1em;
+  bottom: 0;
+  z-index: 2;
+  left: -1px;
+}
 .list-group-item .list-group {
   top: 25px;
-  padding-bottom: 25px;
 }
 
 .list-group .list-group-item {
@@ -233,17 +266,26 @@ export default {
   position: relative;
 }
 
-.list-group-item .open::after {
-  content: '';
-  position: absolute;
-  right: 5px;
-  height: calc(100% - 46px);
-  width: 1px;
-  top: 24px;
-  z-index: 2;
-  background-color: #333333;
-
+.list-group .list-group::before {
+   content: "";
+   display: block;
+   width: 0;
+   position: absolute;
+   top: 0;
+   bottom: 0;
+   left: 0;
+   border-left: 1px solid;
 }
+/*.list-group-item .open::after {*/
+/*  content: '';*/
+/*  position: absolute;*/
+/*  right: 5px;*/
+/*  height: calc(100% - 46px);*/
+/*  width: 1px;*/
+/*  top: 24px;*/
+/*  z-index: 2;*/
+/*  background-color: #333333;*/
+/*}*/
 .multiselect {
   max-width: 180px;
   min-height: 28px;
@@ -257,5 +299,26 @@ export default {
 .multiselect .multiselect__select {
   height: 29px;
   min-height: auto;
+}
+
+.tree::before {
+  content: "";
+  display: block;
+  width: 0;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  border-left: 1px solid;
+  z-index: 3;
+}
+
+.tree:last-child > .list-group-item::before {
+  background: #fff;
+  height: auto;
+  top: 1em;
+  bottom: 0;
+  left: -1px;
+  z-index: 3;
 }
 </style>

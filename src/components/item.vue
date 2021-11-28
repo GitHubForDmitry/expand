@@ -3,7 +3,7 @@
     <div
         @click="toggle"
         class="d-flex"
-        style="position:relative;"
+        style="position:relative;z-index: 2"
     >
       <span class="mx-2 d-flex align-items-start icon"  >
         <csharp style="height: 16px; width: 16px; margin: 3px 5px 0 0;" v-if="model.name === 'Csharp'" />
@@ -15,7 +15,7 @@
         {{model.name}}
       </span>
 
-      <div v-if="isFolder" style="position: relative">
+      <div v-if="isFolder" style="position: relative; z-index: 2;">
         <div style="cursor: pointer;"
              :class="{open: open}"
         >
@@ -196,13 +196,23 @@ name: "item",
     border: 1px solid #1ba8c5;
 }
 
-.icon::after {
-  content: '';
-  position: absolute;
-  right: calc(100% - 4px);
-  background-color: #333;
-  width: 6px;
-  height: 1px;
-  top: 10px;
-}
+/*.icon::before {*/
+/*  content: '';*/
+/*  position: absolute;*/
+/*  right: calc(100% - 4px);*/
+/*  background-color: #333;*/
+/*  width: 6px;*/
+/*  height: 1px;*/
+/*  top: 10px;*/
+/*}*/
+/*.icon::after {*/
+/*  content: '';*/
+/*  position: absolute;*/
+/*  left: -2px;*/
+/*  background-color: #333;*/
+/*  width: 1px;*/
+/*  height: 37px;*/
+/*  top: 0;*/
+/*  z-index: 3;*/
+/*}*/
 </style>
