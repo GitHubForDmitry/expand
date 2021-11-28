@@ -35,3 +35,4 @@ export default {
   margin-top: 60px;
 }
 </style>
+<style src="vue-multiselect/dist/vue-multiselect.min.css"></style>

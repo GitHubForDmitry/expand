@@ -1,11 +1,11 @@
 <template>
   <div class="container">
-        <ul v-for="(model, modelIndex) in departments" :key="modelIndex">
+        <b-list-group v-for="(model, modelIndex) in departments" :key="modelIndex" class="tree">
           <item
-              class="item"
+              class="item d-flex"
               :model="model">
           </item>
-        </ul>
+        </b-list-group>
   </div>
 </template>
 
@@ -27,20 +27,157 @@ export default {
     return {
       departments: [
       {
+        id: 0,
+        name: 'Csharp',
+        show: true,
+        children:[],
+      },
+      {
         id: 1,
-        name: 'Sales',
+        name: 'Java',
         show: true,
         children:[],
       },
       {
         id: 2,
-        name: 'Product',
+        name: 'JavaScript',
         show: true,
         children:[
-          {id: 4,
-            name: 'SubProduct',
+          {
+            id: 25,
+            name: 'Vue',
             show: true,
-            children:[],
+            children:[
+              {
+                id: 5,
+                name: 'Vuex',
+                show: true,
+                children:[],
+              },
+              {
+                id: 5,
+                name: 'VueBootstrap',
+                show: true,
+                children:[],
+              },
+              {
+                id: 5,
+                name: 'VueBootstrap',
+                show: true,
+                children:[],
+              },
+              {
+                id: 5,
+                name: 'VueBootstrap',
+                show: true,
+                children:[],
+              },
+              {
+                id: 5,
+                name: 'Vuex',
+                show: true,
+                children:[],
+              },
+              {
+                id: 5,
+                name: 'Vuex',
+                show: true,
+                children:[],
+              },
+              {
+                id: 5,
+                name: 'Vuex',
+                show: true,
+                children:[],
+              },
+              {
+                id: 5,
+                name: 'Vuex',
+                show: true,
+                children:[],
+              },
+              {
+                id: 5,
+                name: 'Vuex',
+                show: true,
+                children:[],
+              },
+            ],
+          },
+          {
+            id: 4,
+            name: 'React',
+            show: true,
+            children:[
+              {
+                id: 5,
+                name: 'ReactHooks',
+                show: true,
+                children:[],
+              },
+              {
+                id: 5,
+                name: 'ReactClass',
+                show: true,
+                children:[],
+              },
+              {
+                id: 5,
+                name: 'ReactClass',
+                show: true,
+                children:[],
+              },
+              {
+                id: 5,
+                name: 'ReactHooks',
+                show: true,
+                children:[],
+              },
+              {
+                id: 5,
+                name: 'ReactClass',
+                show: true,
+                children:[],
+              },
+              {
+                id: 5,
+                name: 'ReactClass',
+                show: true,
+                children:[],
+              },
+              {
+                id: 5,
+                name: 'ReactHooks',
+                show: true,
+                children:[],
+              },
+              {
+                id: 5,
+                name: 'ReactClass',
+                show: true,
+                children:[],
+              },
+              {
+                id: 5,
+                name: 'ReactClass',
+                show: true,
+                children:[],
+              },
+            ],
+          },
+          {
+            id: 4,
+            name: 'Angular',
+            show: true,
+            children:[
+
+              {
+                id: 5,
+                name: 'Angular',
+                show: true,
+                children:[],
+              }
+            ],
           }
         ],
       },
@@ -75,96 +212,50 @@ export default {
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped>
-body {
-  font-family: Menlo, Consolas, monospace;
-  color: #444;
+<style>
+.list-group {
+  position: relative;
+  top: 25px;
+  left: -8px;
 }
-.item {
-  cursor: pointer;
+
+.list-group-item .list-group {
+  top: 25px;
+  padding-bottom: 25px;
 }
-.bold {
-  font-weight: bold;
+
+.list-group .list-group-item {
+  border: 1px solid transparent;
+  padding: 0.2rem;
 }
-::v-deep ul {
-  margin: 0 0 0 1rem;
-  padding: 0;
-  list-style: none;
+
+.list-group .list-group-item {
   position: relative;
 }
-ul ul {
-  margin-left: 0.5em;
-}
-ul:before {
-  content: "";
-  display: block;
-  width: 0;
+
+.list-group-item .open::after {
+  content: '';
   position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  border-left: 1px solid;
+  right: 5px;
+  height: calc(100% - 46px);
+  width: 1px;
+  top: 24px;
+  z-index: 2;
+  background-color: #333333;
+
 }
-ul li:before {
-  content: "";
-  display: block;
-  width: 10px;
-  height: 0;
-  border-top: 1px solid;
-  margin-top: -1px;
-  position: absolute;
-  top: 1em;
-  left: 0;
+.multiselect {
+  max-width: 180px;
+  min-height: 28px;
 }
-ul li:last-child:before {
-  background: #fff;
-  height: auto;
-  top: 1em;
-  bottom: 0;
+.multiselect .multiselect__tags {
+  height: 29px;
+  min-height: auto;
+  padding: 4px 40px 0 4px;
 }
-li {
-  margin: 0;
-  padding: 0 1em;
-  line-height: 2em;
-  color: #369;
-  font-weight: 700;
-  position: relative;
-}
-li .expand {
-  display: block;
-}
-li .collapse {
-  display: none;
-}
-li a {
-  text-decoration: none;
-  color: #369;
-}
-li button {
-  text-decoration: none;
-  color: #369;
-  border: none;
-  background: transparent;
-  margin: 0px 0px 0px 0px;
-  padding: 0px 0px 0px 0px;
-  outline: 0;
-}
-li button:active {
-  text-decoration: none;
-  color: #369;
-  border: none;
-  background: transparent;
-  margin: 0px 0px 0px 0px;
-  padding: 0px 0px 0px 0px;
-  outline: 0;
-}
-li button:focus {
-  text-decoration: none;
-  color: #369;
-  border: none;
-  background: transparent;
-  margin: 0px 0px 0px 0px;
-  padding: 0px 0px 0px 0px;
-  outline: 0;
+
+.multiselect .multiselect__select {
+  height: 29px;
+  min-height: auto;
 }
 </style>
